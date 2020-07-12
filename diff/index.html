@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>文本差异比较 - soilove</title>
+<meta charset="UTF-8">
+<meta name="description" content="文本比较,文本差异">
+<meta name="keywords" content="本比较,文本差异">
+
+<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	<style type="text/css">
+		.html-body-overflow
+		{
+			overflow-x:hidden;
+			overflow-y:hidden;
+		}
+	</style>
+</head>
+
+<body class="html-body-overflow">
+
+
+<br/>
+<div class="diff-wrapper2">
+	<table style="width:99%;">
+		<tr>
+			<td>
+				<b>
+					文本1:
+				</b>
+				<textarea class="form-control diff-textarea" id="original" rows="15"  style="width:99%;font-size:12px;"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>
+					文本2:
+				</b>
+				<textarea class="form-control diff-textarea" id="changed" rows="15"  style="width:99%;font-size:12px;"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+				<b>
+					对比结果：
+				</b>
+				<div class="diff2" style="width:99%;font-size:12px;">
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+
+
+	<script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="js/plugins/diff_match_patch/diff_match_patch.js"></script>
+    <script src="js/plugins/preetyTextDiff/jquery.pretty-text-diff.min.js"></script>
+    <script>
+    $(document).ready(function() {
+	$(".diff-wrapper2").prettyTextDiff({
+		originalContent: $("#original").val(),
+		changedContent: $("#changed").val(),
+		diffContainer: ".diff2"
+	});
+	$(".diff-textarea").on("change keyup",
+	function() {
+		$(".diff-wrapper2").prettyTextDiff({
+			originalContent: $("#original").val(),
+			changedContent: $("#changed").val(),
+			diffContainer: ".diff2"
+		})
+	})
+});
+    </script>
+
+</body>
+</html>

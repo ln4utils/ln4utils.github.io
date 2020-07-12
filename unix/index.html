@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>
+		Unix时间戳 - soilove
+	</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Unix时间戳">
+	<meta name="keywords" content="Unix,时间戳">
+	<script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js">
+	</script>
+	<script src="unix_time.js">
+	</script>
+	<style>
+		.bjtime{float:left;width:40px} #bjc1 span{float:left;margin:4px}
+	</style>
+</head>
+<body>
+<font size=2>
+	<br/>
+
+	<div class="panel-body" style="border:0px;">
+		<br/>
+		<div class="input-group">
+					<span class="input-group-addon">
+						Unix当前时间戳
+					</span>
+			<input type="text" class="form-control" id="now_timestamp" placeholder="">
+		</div>
+
+		<br/>
+		<div style="border:solid 1px green;">
+			<p>
+				Unix时间戳(Unix timestamp) >> 北京时间:
+			</p>
+			<p>
+			<span class="input-group-addon"> Unix时间戳： </span>
+			<input type="text" class="form-control" style="width:300px" id="unixtime" placeholder="要转换的时间戳" aria-describedby="basic-addon1">
+			</p>
+			<br/>
+			<p>
+			<button type="button" class="btn btn-primary" style="float: left;" id="toGMT"> 转换 </button>
+			</p>
+			<p>
+				&nbsp;&nbsp;
+			<span class="input-group-addon"> 北京时间： </span>
+				<input type="text" class="form-control" id="result_GMT" style="width:200px"
+					   placeholder="转换后的北京时间" aria-describedby="basic-addon1">
+			</p>
+			<br/>
+			<br/>
+		</div>
+
+		<br/>
+
+		<div style="border:solid 1px green;">
+			<p>
+				北京时间 >> Unix时间戳(Unix timestamp):
+			</p>
+			<p>
+			<div class="input-group" id="bjc1" style="width:99%">
+						<span class="input-group-addon" id="basic-addon1">
+							北京时间：
+						</span>
+				<span>
+							<input type="text" class="bjtime" id="year">
+							年
+						</span>
+				<span>
+							<input type="text" class="bjtime" id="month">
+							月
+						</span>
+				<span>
+							<input type="text" class="bjtime" id="day">
+							日
+						</span>
+				<span>
+							<input type="text" class="bjtime" id="hour">
+							时
+						</span>
+				<span>
+							<input type="text" class="bjtime" id="minute">
+							分
+						</span>
+				<span>
+							<input type="text" class="bjtime" id="second">
+							秒
+						</span>
+			</div>
+			</p>
+			<br/><br/>
+			<p>
+			<button type="button" class="btn btn-primary" style="float: left;" id="toUNIX"> 转换</button>
+			</p>
+			<p>
+				&nbsp;&nbsp;
+			<span class="input-group-addon"> Unix时间戳： </span>
+				<input type="text" class="form-control" id="result_unix" style="width:200px"
+					   placeholder="转换后的时间戳">
+			</p>
+			<br/>
+			<br/>
+		</div>
+		<br/>
+		<br/>
+	</div>
+</font>
+</body>
+
+</html>

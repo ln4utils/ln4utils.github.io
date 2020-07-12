@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>二维码/条码生成 - soilove</title>
+<meta charset="UTF-8">
+<meta name="description" content="二维码/条码生成">
+<meta name="keywords" content="二维码/条码生成">
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+<script src="JsBarcode.all.js"></script>
+	<script>
+		Number.prototype.zeroPadding = function(){
+			var ret = "" + this.valueOf();
+			return ret.length == 1 ? "0" + ret : ret;
+		};
+	</script>
+</head>
+<body>
+<br/>
+
+<div class="panel-body" style="width:95%;border:1px solid green;padding:10px;">
+	<div style="margin-bottom:10px;padding:10px;">请填写内容:</div>
+	
+	<div>
+		<input id="text" type="text" style="width:90%;height:20px;border:1px solid #80808;padding:10px;margin-bottom:10px;"/>
+	</div>
+	
+	<div style="margin-bottom:10px;padding:10px;">
+		<button type="button" class="btn btn-primary" onclick="makeCode ();">生成</button>
+	</div>
+	
+	<table>
+		<tr  height="350px">
+			<td>
+				<div id="qrcode" style="width:250px; height:250px; margin-top:15px;"></div>
+			</td>
+			</tr>
+		<tr height="300px">
+			<td>
+				<div style="height:300px; margin-top:15px;">
+					<img id="barcode1" style="border:0px solid black"  />
+				</div>
+			</td>
+		</tr>
+        <tr height="50px">
+			<td>
+				
+			</td>
+		</tr>
+	</table>
+	
+	
+</div>
+
+
+	
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 300,
+	height : 300
+});
+
+function makeCode () {		
+	var elText = document.getElementById("text");
+	
+	if (!elText.value) {
+		alert("请输入内容！");
+		return;
+	}
+	
+	qrcode.makeCode(elText.value);
+	JsBarcode("#barcode1", elText.value);
+	
+	//document.getElementById("barcode1").style.width="300px";
+	//document.getElementById("barcode1").style.height="100px";
+}
+
+
+
+</script>
+
+
+</body>
+</html>
+
